@@ -24,7 +24,7 @@
 	<ul>
 		<c:forEach var="event" items="${eventList}">
 			<li>
-				<a href="/spring4-chap07/event/detail?id=${event.id}">${event.name}[${event.type}]</a>
+				<a href="${pageContext.request.contextPath}/event/detail?id=${event.id}">${event.name}[${event.type}]</a>
 			</li>
 		</c:forEach>
 	</ul>
@@ -33,7 +33,7 @@
 	<ul>
 		<c:forEach var="event" items="${recEventList}">
 			<li>
-				<a href="/spring4-chap07/event/detail?id=${event.id}">${event.name}</a>
+				<a href="${pageContext.request.contextPath}/event/detail?id=${event.id}">${event.name}</a>
 			</li>
 		</c:forEach>
 	</ul>

@@ -15,19 +15,36 @@
 	<mvc:annotation-driven />
 	<context:component-scan base-package="controller,service" />
 
-
-
-
-
-
-
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
-	
+
+
+	<mvc:resources location="/images/, /WEB-INF/resources/"
+		mapping="/images/**" cache-period="60" />
+
+	<mvc:interceptors>
+
+		<mvc:interceptor>
+			<mvc:mapping path="/acl/**" />
+			<ref bean="authInterceptor" />
+		</mvc:interceptor>
+
+		<ref bean="measuringInterceptor" />
+
+		<mvc:interceptor>
+			<mvc:mapping path="/acl/**" />
+			<mvc:mapping path="/header/**" />
+			<mvc:mapping path="/newevent/**" />
+			<mvc:exclude-mapping path="/acl/modify" />
+			<ref bean="commonModelInterceptor" />
+		</mvc:interceptor>
+
+	</mvc:interceptors>
+
+
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -40,28 +57,14 @@
 	</bean>
 
 
-<!-- 	<bean class="chap07.quickstart.HelloController" />
-	<bean class="chap07.event.EventController" />
-
-	<bean id="memberService" class="chap07.member.MemberService" />
-
-	<bean class="chap07.event.EventController" />
-
-	<bean class="chap07.member.RegistrationController">
-		<property name="memberService" ref="memberService" />
-	</bean>
 
 
-	<bean class="chap07.member.MemberController">
-		<property name="memberService" ref="memberService" />
-	</bean>
-
-	<bean class="chap07.search.SearchController" />
-
-	<bean id="aclService" class="chap07.ac.AclService" />
-	<bean class="chap07.ac.AclController">
-		<property name="aclService" ref="aclService" />
-	</bean>
- -->
+	<!-- <bean class="chap07.quickstart.HelloController" /> <bean class="chap07.event.EventController" 
+		/> <bean id="memberService" class="chap07.member.MemberService" /> <bean 
+		class="chap07.event.EventController" /> <bean class="chap07.member.RegistrationController"> 
+		<property name="memberService" ref="memberService" /> </bean> <bean class="chap07.member.MemberController"> 
+		<property name="memberService" ref="memberService" /> </bean> <bean class="chap07.search.SearchController" 
+		/> <bean id="aclService" class="chap07.ac.AclService" /> <bean class="chap07.ac.AclController"> 
+		<property name="aclService" ref="aclService" /> </bean> -->
 </beans>
 

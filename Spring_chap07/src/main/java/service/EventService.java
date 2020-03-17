@@ -52,5 +52,12 @@ public class EventService
         // TODO Auto-generated method stub
         return eventMap.get(eventId);
     }
+
+    public List<Event> getRecommendedEventService()
+    {
+        List<Event> recommendList = new ArrayList<>();
+        recommendList.add(eventMap.get(1L));
+        return recommendList;
+    }
     
 }

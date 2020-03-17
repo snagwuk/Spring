@@ -19,6 +19,7 @@ public class MemberController
 {
     @Autowired
     private MemberService memberService;
+    
     @RequestMapping("/members")
     public String members(Model model)
     {

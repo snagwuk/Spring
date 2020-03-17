@@ -71,6 +71,83 @@
 			</ul>
 		</li>
 
+		<li>요청 헤더 값:
+			<ul>
+				<li><a href="header/simple">/header/simple</a>: @RequestHeader와
+					@CookieValue, SimpleHeaderController.simple()</li>
+				<li><a href="header/createauth">/header/createauth</a>:
+					@CookieValue 테스트를 위한 쿠키 생성, SimpleHeaderController.createAuth()</li>
+			</ul>
+		</li>
+
+		<li>값 검증
+			<ul>
+				<li><a href="member/regist">/member/regist</a>: 값 검증,
+					&lt;spring:hasBindErrors name="memberInfo" /&gt;를 이용한 에러 메시지,
+					RegistrationController</li>
+				<li><a href="auth/login">/auth/login</a>: @Valid 이용 값 검증,
+					&lt;form:form commandName="loginCommand"&gt;를 이용한 에러 메시지, 글로벌 에러
+					메시지, LoginController</li>
+				<li><a href="member/modify?mid=m2">/member/modify?mid=m2</a>:
+					@Valid 및 JSR3-3 이용 값 검증, MemberModificationController</li>
+			</ul>
+		</li>
+
+		<li>값 변환 :
+	
+			<ul>
+				<li><a href="member/regist">/member/regist</a>: DataTimeFormat,
+					RegistratinController/MemberRegistRequest</li>
+				<li><a href="event/list">/event/list</a>: @InitBinder와
+					CustomDateEditor, EventController.list()</li>
+
+			</ul>
+		</li>
+
+		<li>HTTP 세션:
+			<ul>
+				<li><a href="auth/login">/auth/login</a>: HttpServletRequest를
+					통해 HttpSession 사용, LoginController</li>
+				<li><a href="auth/logout">/auth/logout</a>: HttpSession 직접 사용,
+					LogoutController</li>
+				<li><a href="newevent/step1">/newevent/step1</a>:
+					@SessionAttributes 사용, EventCreationController</li>
+			</ul>
+		</li>
+		<li>익셉션 처리
+			<ul>
+				<li><a href="cal/divide?op1=10&op2=0">/cal/divide?op1=10&amp;op2=0</a>:
+					@ExceptionHandler, CalculationController</li>
+				<li><a href="event/detail2">/event/detail2</a>:
+					@ControllerAdvice 사용, CommonExceptionHandler. 설정(sample.xml,
+					SampleConfig.java)에서 CommonExceptionHandler 부분의 주석 해제 후</li>
+				<li><a href="files/a111">/files/a111</a>: 익셉션 클래스에
+					@ResponseStatus 사용, FileController.fileInfo()/NoFileInfoException</li>
+			</ul>
+		</li>
+		<li>requestMapping (pattern 이용)
+			<ul>
+				<li><a href="files/a111">/files/a111</a>: 익셉션 클래스에
+					@ResponseStatus 사용, FileController.fileInfo()/NoFileInfoException</li>
+				
+				<li><a href="files/aaa.download">/files/?*.download</a></li>
+				<li><a href="folders/aaa/bbb/ccc/files">/folders/**/files</a></li>
+			</ul>
+		</li>
+		<li>스프링 설정
+			<ul>
+				<li><a href="index">/index</a>: 뷰 전용 컨트롤러</li>
+				<li><a href="images/javalogo.jpg">/images/javalogo.jpg</a>: 정적
+					자원</li>
+			</ul>
+		</li>
+		<li>핸들러 인터셉터
+			<ul>
+				<li>확장자 없는 모든 요청 경로: 콘솔에 실행 시간 출력됨, MeasuringInterceptor</li>
+				<li><a href="acl/list">/acl/list</a>: AuthInterceptor 적용. 로그인 전
+					접근하면 403 응답 화면 출력</li>
+			</ul>
+		</li>
 
 	</ul>
 </body>
