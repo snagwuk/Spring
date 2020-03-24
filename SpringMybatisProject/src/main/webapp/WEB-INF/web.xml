@@ -6,7 +6,7 @@
 	id="spring4-chap07" version="3.0">
 	<display-name>SpringMybatisProject</display-name>
 
-<!-- 
+
 
 	<jsp-config>
 		<jsp-property-group>
@@ -15,7 +15,7 @@
 		</jsp-property-group>
 	</jsp-config>
 
- -->
+
 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
