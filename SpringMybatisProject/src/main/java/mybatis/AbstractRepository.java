@@ -7,24 +7,20 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public abstract class AbstractRepository
+public class AbstractRepository
 {
-    String dbname;
+    private SqlSessionFactory sqlSessionFactory;
     String resource;
     
-    public void setDbname(String dbname)
+    public AbstractRepository(String dbname)
     {
-        this.dbname = dbname;
-        
-        resource = "mybatis/mybatis-"+dbname+".xml";
-        System.out.println(resource);
+        this.resource = "mybatis/mybatis-"+dbname+".xml";
+        setSqlSessionFactory();
     }
 
-    private SqlSessionFactory sqlSessionFactory;
-    
     private void setSqlSessionFactory()
     {
-        //String resource = "mybatis/mybatis-config.xml";
+       
         InputStream inputStream;
         try
         {
@@ -37,12 +33,8 @@ public abstract class AbstractRepository
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
     
-    protected SqlSessionFactory getSqlSessionFactory()
-    {
-        setSqlSessionFactory();
-        return sqlSessionFactory;
-        
-        
-        
+    public SqlSessionFactory getSqlSessionFactory()
+    {     
+        return sqlSessionFactory; 
     }
 }

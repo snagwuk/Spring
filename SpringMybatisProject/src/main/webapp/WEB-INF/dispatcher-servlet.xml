@@ -27,8 +27,8 @@
 
 
 	
-	<bean class="mybatis.MybatisBoardDaoMysql">
-		<property name="dbname" value="Mysql" />
+	<bean class="mybatis.AbstractRepository">
+		<constructor-arg><value>Mysql</value></constructor-arg>
 	</bean>
 
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

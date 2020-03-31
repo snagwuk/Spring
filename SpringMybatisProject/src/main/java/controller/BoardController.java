@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.FileOutputStream;
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 
 import java.util.List;
@@ -20,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import model.BoardDataBean;
-import mybatis.MybatisBoardDaoMysql;
+import service.MybatisBoardDaoMysql;
 
 @Controller
 @RequestMapping("board/")
